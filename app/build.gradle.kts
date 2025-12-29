@@ -99,8 +99,12 @@ dependencies {
     implementation("io.noties.markwon:ext-strikethrough:$markwonVersion")
     implementation("io.noties.markwon:ext-tasklist:$markwonVersion")
     implementation("io.noties.markwon:syntax-highlight:$markwonVersion")
-    implementation("io.noties:prism4j:$prism4jVersion")
-    kapt("io.noties:prism4j-bundler:$prism4jVersion")
+    implementation("io.noties:prism4j:$prism4jVersion") {
+        exclude(group = "org.jetbrains", module = "annotations-java5")
+    }
+    kapt("io.noties:prism4j-bundler:$prism4jVersion") {
+        exclude(group = "org.jetbrains", module = "annotations-java5")
+    }
 
     implementation("org.tinylog:tinylog-api-kotlin:$tinylogVersion")
     implementation("org.tinylog:tinylog-impl:$tinylogVersion")
