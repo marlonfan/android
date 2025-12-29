@@ -75,7 +75,7 @@
         android:padding="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/delete_message"
-        android:tint="@color/icons"
+        app:tint="@color/icons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_delete" />
