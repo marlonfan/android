@@ -24,9 +24,14 @@ import io.noties.markwon.core.MarkwonTheme
 import io.noties.markwon.ext.strikethrough.StrikethroughPlugin
 import io.noties.markwon.ext.tables.TableAwareMovementMethod
 import io.noties.markwon.ext.tables.TablePlugin
+import io.noties.markwon.ext.tasklist.TaskListPlugin
 import io.noties.markwon.image.AsyncDrawable
 import io.noties.markwon.image.coil.CoilImagesPlugin
 import io.noties.markwon.movement.MovementMethodPlugin
+import io.noties.markwon.syntax.Prism4jThemeDarkula
+import io.noties.markwon.syntax.Prism4jThemeDefault
+import io.noties.markwon.syntax.SyntaxHighlightPlugin
+import io.noties.prism4j.Prism4j
 import org.commonmark.ext.gfm.tables.TableCell
 import org.commonmark.ext.gfm.tables.TablesExtension
 import org.commonmark.node.BlockQuote
@@ -41,6 +46,13 @@ import org.tinylog.kotlin.Logger
 
 internal object MarkwonFactory {
     fun createForMessage(context: Context, imageLoader: ImageLoader): Markwon {
+        val prism4j = Prism4j(Prism4jGrammarLocator())
+        val theme = if (isDarkMode(context)) {
+            Prism4jThemeDarkula.create()
+        } else {
+            Prism4jThemeDefault.create()
+        }
+
         return Markwon.builder(context)
             .usePlugin(CorePlugin.create())
             .usePlugin(MovementMethodPlugin.create(TableAwareMovementMethod.create()))
@@ -70,6 +82,8 @@ internal object MarkwonFactory {
             )
             .usePlugin(StrikethroughPlugin.create())
             .usePlugin(TablePlugin.create(context))
+            .usePlugin(TaskListPlugin.create(context))
+            .usePlugin(SyntaxHighlightPlugin.create(prism4j, theme))
             .usePlugin(object : AbstractMarkwonPlugin() {
                 override fun configureTheme(builder: MarkwonTheme.Builder) {
                     builder.linkColor(ContextCompat.getColor(context, R.color.hyperLink))
@@ -115,12 +129,22 @@ internal object MarkwonFactory {
                 }
 
                 override fun configureVisitor(builder: MarkwonVisitor.Builder) {
-                    builder.on(TableCell::class.java) { visitor: MarkwonVisitor, node: TableCell? ->
+                    builder.on(TableCell::class.java) { visitor: MarkwonVisitor, node: TableCell ->
                         visitor.visitChildren(node!!)
-                        visitor.builder().append(' ')
+                        if (node.isHeader) {
+                            visitor.builder().append(" | ")
+                        } else {
+                            visitor.builder().append(" • ")
+                        }
                     }
                 }
             })
             .build()
+    }
+
+    private fun isDarkMode(context: Context): Boolean {
+        val nightModeFlags = context.resources.configuration.uiMode and
+                android.content.res.Configuration.UI_MODE_NIGHT_MASK
+        return nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES
     }
 }

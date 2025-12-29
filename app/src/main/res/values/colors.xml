@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3867d6</color>
+    <!-- Primary Colors - Google Voice Inspired -->
+    <color name="colorPrimary">#5E97F6</color>
     <color name="colorNavPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">#3867d6</color>
-    <color name="colorAccent">#1c49b4</color>
-    <color name="icons">#797979</color>
-    <color name="swipeBackground">#E74C3C</color>
+    <color name="colorPrimaryDark">#4285F4</color>
+    <color name="colorAccent">#34A853</color>
+
+    <!-- Surface & Background -->
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorBackground">#F8F9FA</color>
+    <color name="colorCardBackground">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="textPrimary">#202124</color>
+    <color name="textSecondary">#5F6368</color>
+    <color name="textTertiary">#9AA0A6</color>
+
+    <!-- Message Card -->
+    <color name="messageCardElevation">#0A000000</color>
+    <color name="messageDivider">#E8EAED</color>
+
+    <!-- Actions & Icons -->
+    <color name="icons">#5F6368</color>
+    <color name="swipeBackground">#EA4335</color>
     <color name="swipeIcon">#FFFFFF</color>
-    <color name="hyperLink">#FF7F50</color>
+    <color name="hyperLink">#1A73E8</color>
 </resources>

@@ -27,7 +27,6 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout.SimpleDrawerListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -98,10 +97,7 @@ internal class MessagesActivity :
 
         val layoutManager = LinearLayoutManager(this)
         val messagesView: RecyclerView = binding.messagesView
-        val dividerItemDecoration = DividerItemDecoration(
-            messagesView.context,
-            layoutManager.orientation
-        )
+
         listMessageAdapter = ListMessageAdapter(
             this,
             viewModel.settings,
@@ -111,11 +107,12 @@ internal class MessagesActivity :
         }
         addBackPressCallback()
 
-        messagesView.addItemDecoration(dividerItemDecoration)
+        // Card design doesn't need dividers
         messagesView.setHasFixedSize(true)
         messagesView.layoutManager = layoutManager
         messagesView.addOnScrollListener(MessageListOnScrollListener())
         messagesView.adapter = listMessageAdapter
+        messagesView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorBackground))
 
         val appsHolder = viewModel.appsHolder
         appsHolder.onUpdate { onUpdateApps(appsHolder.get()) }

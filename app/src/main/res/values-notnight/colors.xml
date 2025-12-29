@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3867d6</color>
+    <!-- Primary Colors - Dark Theme -->
+    <color name="colorPrimary">#8AB4F8</color>
     <color name="colorNavPrimary">#000000</color>
-    <color name="colorPrimaryDark">#3867d6</color>
-    <color name="colorAccent">#1c49b4</color>
-    <color name="icons">#434343</color>
-    <color name="swipeBackground">#E74C3C</color>
-    <color name="swipeIcon">#FFFFFF</color>
-    <color name="hyperLink">#FF7F50</color>
+    <color name="colorPrimaryDark">#8AB4F8</color>
+    <color name="colorAccent">#81C995</color>
+
+    <!-- Surface & Background -->
+    <color name="colorSurface">#202124</color>
+    <color name="colorBackground">#17181A</color>
+    <color name="colorCardBackground">#292A2D</color>
+
+    <!-- Text Colors -->
+    <color name="textPrimary">#E8EAED</color>
+    <color name="textSecondary">#9AA0A6</color>
+    <color name="textTertiary">#5F6368</color>
+
+    <!-- Message Card -->
+    <color name="messageCardElevation">#1A000000</color>
+    <color name="messageDivider">#3C4043</color>
+
+    <!-- Actions & Icons -->
+    <color name="icons">#9AA0A6</color>
+    <color name="swipeBackground">#F28B82</color>
+    <color name="swipeIcon">#202124</color>
+    <color name="hyperLink">#8AB4F8</color>
 </resources>

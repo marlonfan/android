@@ -6,6 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+        <item name="android:textColorSecondary">@color/textSecondary</item>
     </style>
     <style name="AppTheme.Nav">
         <item name="colorPrimary">@color/colorNavPrimary</item>
@@ -47,6 +51,31 @@
 
     <style name="Preference.SwitchPreferenceCompat" parent="@style/Preference.SwitchPreferenceCompat.Material" tools:ignore="ResourceCycle">
         <item name="widgetLayout">@layout/preference_switch</item>
+    </style>
+
+    <!-- Message Card Styles -->
+    <style name="MessageCardStyle">
+        <item name="android:background">@drawable/message_card_background</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:layout_marginEnd">12dp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+    </style>
+
+    <style name="MessageCardCompactStyle">
+        <item name="android:background">@drawable/message_card_background</item>
+        <item name="android:elevation">1dp</item>
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:layout_marginEnd">12dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <!-- Rounded Image View -->
+    <style name="RoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
     </style>
 
 </resources>

@@ -4,4 +4,22 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">166dp</dimen>
+
+    <!-- Message Card Dimensions -->
+    <dimen name="message_card_corner_radius">12dp</dimen>
+    <dimen name="message_card_elevation">2dp</dimen>
+    <dimen name="message_card_margin_horizontal">12dp</dimen>
+    <dimen name="message_card_margin_vertical">6dp</dimen>
+    <dimen name="message_card_padding">16dp</dimen>
+
+    <!-- Message Content -->
+    <dimen name="message_image_size">56dp</dimen>
+    <dimen name="message_content_margin_start">16dp</dimen>
+    <dimen name="message_content_spacing">8dp</dimen>
+    <dimen name="message_delete_button_size">40dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="message_title_text_size">16sp</dimen>
+    <dimen name="message_content_text_size">14sp</dimen>
+    <dimen name="message_date_text_size">12sp</dimen>
 </resources>
