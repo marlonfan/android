@@ -5,7 +5,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-kapt")
     id("org.jmailen.kotlinter") version "5.1.1"
 }
 
@@ -78,7 +77,6 @@ if (project.hasProperty("sign")) {
 dependencies {
     val coilVersion = "2.7.0"
     val markwonVersion = "4.6.2"
-    val prism4jVersion = "2.0.0"
     val tinylogVersion = "2.7.0"
     implementation(project(":client"))
     implementation("androidx.appcompat:appcompat:1.7.1")
@@ -98,9 +96,6 @@ dependencies {
     implementation("io.noties.markwon:ext-tables:$markwonVersion")
     implementation("io.noties.markwon:ext-strikethrough:$markwonVersion")
     implementation("io.noties.markwon:ext-tasklist:$markwonVersion")
-    implementation("io.noties.markwon:syntax-highlight:$markwonVersion")
-    implementation("io.noties:prism4j:$prism4jVersion")
-    kapt("io.noties:prism4j-bundler:$prism4jVersion")
 
     implementation("org.tinylog:tinylog-api-kotlin:$tinylogVersion")
     implementation("org.tinylog:tinylog-impl:$tinylogVersion")
@@ -113,6 +108,5 @@ dependencies {
 configurations {
     configureEach {
         exclude(group = "androidx.lifecycle", module = "lifecycle-viewmodel-ktx")
-        exclude(group = "org.jetbrains", module = "annotations-java5")
     }
 }
